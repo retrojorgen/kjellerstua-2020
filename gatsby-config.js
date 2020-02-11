@@ -1,10 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Kjellerstua 2020 | kode24s kodekonferanse`,
+    logoTitle: `Kjellerstua`,
+    description: `20. august, 2020 arrangerer kode24.no sin første konferanse, på Røverstaden i Oslo.`,
+    author: `@retrojorgen`,
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

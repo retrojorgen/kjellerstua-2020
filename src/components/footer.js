@@ -4,14 +4,13 @@ import React from "react"
 import styled from "styled-components"
 
 
-const HeaderWrapper = styled.header`
+const FooterWrapper = styled.footer`
   width: 100%;
-  background-color: #080c27;
+  background: linear-gradient(45deg, black, transparent);
   font-family: "fredoka one";
-  position: fixed;
+  position: relative;
   z-index: 10;
-  top: 0;
-  left: 0;
+  padding: 4rem 4rem;
   .header-shrinker {
     margin: 0 auto;
     width: 960px;
@@ -35,6 +34,7 @@ const HeaderWrapper = styled.header`
 
 const PageNavigation = styled.nav`
   display: flex;
+  flex-direction: column;
   color: white;
   list-style: none;
   padding: 0;
@@ -43,6 +43,11 @@ const PageNavigation = styled.nav`
 
   li {
     display: block;
+    &.social {
+      a {
+        color: #e6e2ff;
+      } 
+    }
   }
   a {
     display: block;
@@ -54,6 +59,7 @@ const PageNavigation = styled.nav`
     letter-spacing: 2px;
     position: relative;
     overflow: hidden;
+
     &:after {
       content: "";
       position: absolute;
@@ -65,7 +71,6 @@ const PageNavigation = styled.nav`
       transform: translateX(-50%) translateY(4px) scale(0);
       transition: all 0.1s ease-in-out;
       opacity: 0;
-      border-radius: 4px;
     }
     &:hover {
       &:after {
@@ -77,7 +82,7 @@ const PageNavigation = styled.nav`
 `;
 
 const Header = ({ siteTitle }) => (
-  <HeaderWrapper
+  <FooterWrapper
   >
       <div className="header-shrinker">
         <span id="logo">
@@ -94,7 +99,7 @@ const Header = ({ siteTitle }) => (
           
         </PageNavigation>
       </div>
-  </HeaderWrapper>
+  </FooterWrapper>
 )
 
 Header.propTypes = {
