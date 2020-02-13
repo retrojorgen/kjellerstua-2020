@@ -1,6 +1,22 @@
 import React from "react"
-import styled from "styled-components"
+import styled, {keyframes} from "styled-components"
+import embroideryBack from "../images/embroidery.jpg"
+import kjellerstuaLogo from "../images/kjellerstua-logo.png"
+import kjellerstuaBasementGraphics from "../images/basement-graphics.png"
 
+
+const moveUpAnimation = keyframes`
+0% {
+  transform: translateY(100%) skew(10deg) rotate(10deg) translateZ(0);
+  opacity: 0;
+  filter: blur(20px);
+}
+100% {
+  transform: translateY(14px) skew(0) rotate(0) translateZ(0);
+  opacity: 1;
+  filter: blur(0);
+}
+`
 
 const HeroWrapper = styled.header`
   width: 100%;
@@ -10,8 +26,19 @@ const HeroWrapper = styled.header`
   flex-direction: column;
   background-color: black;
   font-family: "Fredoka One";
-  min-height: 600px;
-  background: linear-gradient(45deg,#673AB7,#E91E63);
+  padding-top: 80px;
+  background: radial-gradient(#6838b3,#322ca1);
+  position: relative;
+  overflow: hidden;
+  height: 590px;
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(0deg,#0000005e, transparent);
+  }
     h1 {
         color: white;
         text-transform: uppercase;
@@ -22,13 +49,51 @@ const HeroWrapper = styled.header`
     h2 {
         color: white;
     }
+    #embroidery-overlay {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url(${embroideryBack});
+      background-size: auto 90%;
+      mix-blend-mode: multiply;
+      opacity: 0.4;
+      z-index: 4;
+    }
+  #hero-logo-graphics {
+    width: 686px;
+    left: 24px;
+    top: -76px;
+    max-width: 100%;
+    margin-bottom:80px;
+    position: relative;
+    z-index: 5;
+    animation: ${moveUpAnimation} 1s ease-in-out forwards 0.5s;
+    opacity: 0;
+    
+  }
+  #hero-basement-graphics {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(${kjellerstuaBasementGraphics});
+    background-position: top center;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    opacity: 1;
+    z-index: 10;
+  }  
 `;
 
 const Header = ({ siteTitle }) => (
   <HeroWrapper
   > 
-    <h1>Kjellerstua</h1>
-    <h2>20. august, 2020, Røverstaden, Oslo.</h2>
+    <img id="hero-logo-graphics" src={kjellerstuaLogo} />
+    <div id="embroidery-overlay"></div>
+    <div id="hero-basement-graphics"></div>
   </HeroWrapper>
 )
 

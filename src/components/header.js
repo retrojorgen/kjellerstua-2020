@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import styled from "styled-components"
+import kjellerstuaLogo from "../images/kjellerstua-top-graphics.png"
 
 
 const HeaderWrapper = styled.header`
@@ -12,6 +13,10 @@ const HeaderWrapper = styled.header`
   z-index: 10;
   top: 0;
   left: 0;
+  height: 70px;
+  display: flex;
+  align-items: center;
+
   .header-shrinker {
     margin: 0 auto;
     width: 960px;
@@ -21,15 +26,12 @@ const HeaderWrapper = styled.header`
     align-items: center;
   }
   #logo {
-    color: white;
-    text-transform:uppercase;
-    font-size: 2em;
-    padding: 0.5em;
     margin: 0;
-    a {
-      color: white;
-      text-decoration: none;
-    }
+    width: 159px;
+    background-repeat: no-repeat;
+    height: 54px;
+    background-image: url(${kjellerstuaLogo});
+    background-size: 100% auto;
   }
 `;
 
@@ -54,24 +56,8 @@ const PageNavigation = styled.nav`
     letter-spacing: 2px;
     position: relative;
     overflow: hidden;
-    &:after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      bottom: 0;
-      width: 60%;
-      height: 4px;
-      background: linear-gradient(45deg,#673AB7,#E91E63);
-      transform: translateX(-50%) translateY(4px) scale(0);
-      transition: all 0.1s ease-in-out;
-      opacity: 0;
-      border-radius: 4px;
-    }
     &:hover {
-      &:after {
-        transform: translateX(-50%) translateY(0) scale(1);
-        opacity: 1;
-      }
+      color: #ae8fe6;
     }
   }
 `;
@@ -81,11 +67,6 @@ const Header = ({ siteTitle }) => (
   >
       <div className="header-shrinker">
         <span id="logo">
-          <Link
-            to="/"
-          >
-            {siteTitle}
-          </Link>
         </span>
         <PageNavigation>
           <li><a href="#">Praktisk informasjon</a></li>

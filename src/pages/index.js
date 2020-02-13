@@ -5,7 +5,8 @@ import Layout from "../components/layout"
 import Hero from "../components/hero"
 import Image from "../components/image"
 import SEO from "../components/seo"
-
+import embroideryBack from "../images/embroidery.jpg"
+import kjellerstuaBasementGraphics from "../images/basement-graphics.png"
 import styled from "styled-components"
 
 const Section = styled.section`
@@ -15,13 +16,68 @@ const Section = styled.section`
   width: 100%;
   padding: 6rem 4rem;
   background: ${props => props.background ? props.background: ""};
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(${embroideryBack});
+    background-size: auto 90%;
+    mix-blend-mode: multiply;
+    opacity: 0.4;
+    z-index: 4;
+    pointer-events: none;
+  }
+  &.graphics-right {
+    &:after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 400px;
+      height: 400px;
+      opacity: 0.4;
+      background-size: auto 60%;
+      background-position: bottom left;
+      background-repeat: no-repeat;
+      background-image: url(${kjellerstuaBasementGraphics});
+      
+      opacity: 0.2;
+      z-index: 3;
+      pointer-events: none; 
+    }
+  }
+  &.graphics-left {
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 600px;
+      height: 400px;
+      opacity: 0.4;
+      background-size: cover;
+      background-position: bottom right;
+      background-repeat: no-repeat;
+      background-image: url(${kjellerstuaBasementGraphics});
+      
+      opacity: 0.4;
+      z-index: 3;
+      pointer-events: none; 
+    }
+  }
   .content-wrap {
+
     max-width: 100%;
     width: 960px;
     display: grid;
     grid-column-gap: 30px;
     grid-template-columns: 300px auto;
     color: #e6e2ff;
+    position: relative;
     .info-section,
     .description-section {
       position: relative;
@@ -33,15 +89,14 @@ const Section = styled.section`
         width: 100%;
         display: block;
         height: 4px;
-        background: ${props => props.lineBackground ? props.lineBackground: "linear-gradient(45deg,#673AB7,#E91E63)"};
+        background: ${props => props.lineBackground ? props.lineBackground: "linear-gradient(45deg,#6838b3,#322ca1)"};
         border-radius: 4px;
       }
-
     }
   }
   .submit-button {
     border-radius: 40px;
-    background: ${props => props.submitButtonBackground ? props.submitButtonBackground: "linear-gradient(45deg,#9C27B0,#3F51B5)"};
+    background: ${props => props.submitButtonBackground ? props.submitButtonBackground: "linear-gradient(45deg,#6838b3,#322ca1)"};
     color: ${props => props.submitButtonColor ? props.submitButtonColor: "white"};
     text-transform: uppercase;
     padding: 1.2rem 4rem;
@@ -53,6 +108,8 @@ const Section = styled.section`
     outline: none;
     transition: all 0.2s ease-in-out;
     cursor: pointer;
+    position: relative;
+    z-index: 10;
     &:hover {
       transform: scale(1.01);
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -71,7 +128,7 @@ const Section = styled.section`
       padding: 0.2rem 0;
       .icon {
         display: inline-block;
-        background: linear-gradient(45deg, #673AB7, #9C27B0);
+        background: linear-gradient(45deg, #6838b3, #322ca1);
         border-radius: 50%;
         width: 30px;
         height: 30px;
@@ -117,7 +174,7 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <Hero />
-    <Section>
+    <Section className="graphics-right">
       <div className="content-wrap">
         <div className="info-section">
           <h3>Praktisk info
@@ -151,7 +208,7 @@ const IndexPage = () => (
       </div>
     </Section>
 
-    <Section background="linear-gradient(45deg, #9C27B0, #3F51B5)" lineBackground="white" submitButtonBackground="linear-gradient(45deg, white, #d9defd)" submitButtonColor="#3F51B5">
+    <Section  className="graphics-left" background="linear-gradient(45deg, #6838b3, #322ca1)" lineBackground="white" submitButtonBackground="linear-gradient(45deg, white, #d9defd)" submitButtonColor="#3F51B5">
       <div className="content-wrap">
         <div className="info-section">
           <h3>Foreslå foredrag
@@ -173,7 +230,7 @@ const IndexPage = () => (
       </div>
     </Section>
 
-    <Section>
+    <Section className="graphics-right">
       <div className="content-wrap">
         <div className="info-section">
           <h3>Bli sponsor
