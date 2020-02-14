@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import styled from "styled-components"
-
+import kjellerstuaLogo from "../images/kjellerstua-top-graphics.png"
 
 const FooterWrapper = styled.footer`
   width: 100%;
@@ -10,7 +10,10 @@ const FooterWrapper = styled.footer`
   font-family: "fredoka one";
   position: relative;
   z-index: 10;
-  padding: 4rem 4rem;
+  padding: 1rem;
+  @media (min-width: 1024px) {
+    padding: 4rem 4rem;
+  }
   .header-shrinker {
     margin: 0 auto;
     width: 960px;
@@ -20,14 +23,15 @@ const FooterWrapper = styled.footer`
     align-items: center;
   }
   #logo {
-    color: white;
-    text-transform:uppercase;
-    font-size: 2em;
-    padding: 0.5em;
-    margin: 0;
-    a {
-      color: white;
-      text-decoration: none;
+    
+    @media (min-width: 1024px) {
+      margin: 0;
+      width: 159px;
+      background-repeat: no-repeat;
+      height: 54px;
+      background-image: url(${kjellerstuaLogo});
+      background-size: 100% auto;
+      display: block;
     }
   }
 `;
@@ -60,23 +64,8 @@ const PageNavigation = styled.nav`
     position: relative;
     overflow: hidden;
 
-    &:after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      bottom: 0;
-      width: 60%;
-      height: 4px;
-      background: linear-gradient(45deg,#673AB7,#E91E63);
-      transform: translateX(-50%) translateY(4px) scale(0);
-      transition: all 0.1s ease-in-out;
-      opacity: 0;
-    }
     &:hover {
-      &:after {
-        transform: translateX(-50%) translateY(0) scale(1);
-        opacity: 1;
-      }
+      color: #ae8fe6;
     }
   }
 `;
@@ -85,12 +74,7 @@ const Header = ({ siteTitle }) => (
   <FooterWrapper
   >
       <div className="header-shrinker">
-        <span id="logo">
-          <Link
-            to="/"
-          >
-            {siteTitle}
-          </Link>
+      <span id="logo">
         </span>
         <PageNavigation>
           <li><a href="#">Praktisk informasjon</a></li>

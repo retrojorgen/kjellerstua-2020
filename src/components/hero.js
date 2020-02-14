@@ -11,6 +11,16 @@ const moveUpAnimation = keyframes`
   opacity: 0;
   filter: blur(20px);
 }
+80% {
+  transform: translateY(14px) skew(0) rotate(0) translateZ(0);
+  opacity: 1;
+  filter: blur(0);
+}
+90% {
+  transform: translateY(12px) skew(0) rotate(-2deg) translateZ(0);
+  opacity: 0.9;
+  filter: blur(0);
+}
 100% {
   transform: translateY(14px) skew(0) rotate(0) translateZ(0);
   opacity: 1;
@@ -30,7 +40,10 @@ const HeroWrapper = styled.header`
   background: radial-gradient(#6838b3,#322ca1);
   position: relative;
   overflow: hidden;
-  height: 590px;
+  height: 314px;
+  @media (min-width: 1024px) {
+    height: 590px;
+  }
   &:before {
     content: "";
     position: absolute;
@@ -62,16 +75,20 @@ const HeroWrapper = styled.header`
       z-index: 4;
     }
   #hero-logo-graphics {
-    width: 686px;
-    left: 24px;
-    top: -76px;
-    max-width: 100%;
+    
+    top: -48px;
+    left: 13px;
+    width: 370px;
     margin-bottom:80px;
     position: relative;
     z-index: 5;
     animation: ${moveUpAnimation} 1s ease-in-out forwards 0.5s;
     opacity: 0;
-    
+    @media (min-width: 1024px) {
+      width: 686px;
+      left: 24px;
+    top: -76px;
+    }
   }
   #hero-basement-graphics {
     position: absolute;

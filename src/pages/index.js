@@ -14,9 +14,13 @@ const Section = styled.section`
   justify-content: center;
   align-items: flex-start;
   width: 100%;
-  padding: 6rem 4rem;
+  padding: 2rem;
   background: ${props => props.background ? props.background: ""};
   position: relative;
+  overflow-x: hidden;
+  @media (min-width: 1024px) {
+    padding: 6rem 4rem;
+  }
   &:before {
     content: "";
     position: absolute;
@@ -27,9 +31,12 @@ const Section = styled.section`
     background-image: url(${embroideryBack});
     background-size: auto 90%;
     mix-blend-mode: multiply;
-    opacity: 0.4;
+    opacity: 0.1;
     z-index: 4;
     pointer-events: none;
+    @media (min-width: 1024px) {
+      opacity: 0.4;
+    }
   }
   &.graphics-right {
     &:after {
@@ -38,7 +45,7 @@ const Section = styled.section`
       right: 0;
       bottom: 0;
       width: 400px;
-      height: 400px;
+      height: 140px;
       opacity: 0.4;
       background-size: auto 60%;
       background-position: bottom left;
@@ -48,6 +55,9 @@ const Section = styled.section`
       opacity: 0.2;
       z-index: 3;
       pointer-events: none; 
+      @media (min-width: 1024px) {
+        height: 400px;
+      }
     }
   }
   &.graphics-left {
@@ -57,7 +67,7 @@ const Section = styled.section`
       left: 0;
       bottom: 0;
       width: 600px;
-      height: 400px;
+      height: 140px;
       opacity: 0.4;
       background-size: cover;
       background-position: bottom right;
@@ -66,18 +76,27 @@ const Section = styled.section`
       
       opacity: 0.4;
       z-index: 3;
-      pointer-events: none; 
+      pointer-events: none;
+      @media (min-width: 1024px) {
+        height: 400px;
+      } 
     }
   }
   .content-wrap {
 
     max-width: 100%;
     width: 960px;
-    display: grid;
-    grid-column-gap: 30px;
-    grid-template-columns: 300px auto;
+    
     color: #e6e2ff;
     position: relative;
+    @media (min-width: 1024px) {
+      display: grid;
+      grid-column-gap: 30px;
+      grid-template-columns: 300px auto;
+    }
+    .info-section {
+      padding-bottom: 2rem;
+    }
     .info-section,
     .description-section {
       position: relative;
@@ -163,10 +182,14 @@ const Section = styled.section`
     font-weight: bold;
   }
   h3 {
-    margin: 2rem 0;
-    padding: 0;
+    margin: 0;
+    padding-top: 2rem;
     font-family: "fredoka one";
     font-size: 2.5rem;
+    @media (min-width: 1024px) {
+      margin: 2rem 0;
+      padding: 0;
+    }
   }
 `;
 
@@ -174,12 +197,13 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <Hero />
-    <Section className="graphics-right">
+    <Section id="practical-info" className="graphics-right">
       <div className="content-wrap">
         <div className="info-section">
           <h3>Praktisk info
           </h3>
           <p className="standfirst">20. juni, 2020, <br />Røverstaden, Oslo</p>
+          {/**
           <ul>
             <li>
               <span className="icon">🚀</span> Facebook
@@ -191,6 +215,8 @@ const IndexPage = () => (
               <span className="icon">✉️</span> E-post
             </li>
           </ul>
+           * 
+           */}
         </div>
         <div className="description-section">
           
@@ -208,7 +234,7 @@ const IndexPage = () => (
       </div>
     </Section>
 
-    <Section  className="graphics-left" background="linear-gradient(45deg, #6838b3, #322ca1)" lineBackground="white" submitButtonBackground="linear-gradient(45deg, white, #d9defd)" submitButtonColor="#3F51B5">
+    <Section  id="suggest-presentation" className="graphics-left" background="linear-gradient(45deg, #6838b3, #322ca1)" lineBackground="white" submitButtonBackground="linear-gradient(45deg, white, #d9defd)" submitButtonColor="#3F51B5">
       <div className="content-wrap">
         <div className="info-section">
           <h3>Foreslå foredrag
@@ -230,7 +256,7 @@ const IndexPage = () => (
       </div>
     </Section>
 
-    <Section className="graphics-right">
+    <Section id="become-sponsor" className="graphics-right">
       <div className="content-wrap">
         <div className="info-section">
           <h3>Bli sponsor
