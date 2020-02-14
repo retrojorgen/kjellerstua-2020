@@ -87,8 +87,7 @@ const HeroWrapper = styled.header`
     opacity: 0;
     @media (min-width: 1024px) {
       width: 686px;
-      left: 24px;
-    top: -76px;
+      top: -76px;
     }
   }
   #hero-basement-graphics {
