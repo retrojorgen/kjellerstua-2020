@@ -40,7 +40,7 @@ const HeroWrapper = styled.header`
   background: radial-gradient(#6838b3,#322ca1);
   position: relative;
   overflow: hidden;
-  height: 314px;
+  height: 260px;
   @media (min-width: 1024px) {
     height: 590px;
   }
@@ -76,9 +76,9 @@ const HeroWrapper = styled.header`
     }
   #hero-logo-graphics {
     
-    top: -48px;
-    left: 13px;
-    width: 370px;
+    top: -40px;
+    left: 0px;
+    width: 300px;
     margin-bottom:80px;
     position: relative;
     z-index: 5;

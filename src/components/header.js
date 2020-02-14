@@ -7,7 +7,7 @@ import kjellerstuaLogo from "../images/kjellerstua-top-graphics.png"
 
 const HeaderWrapper = styled.header`
   width: 100%;
-  background-color: #080c27;
+  
   font-family: "fredoka one";
   position: fixed;
   z-index: 40;
@@ -16,9 +16,10 @@ const HeaderWrapper = styled.header`
   height: 70px;
   display: flex;
   align-items: center;
+  background-color: #2f2174;
   @media (min-width: 1024px) {
     top: 0;
-    
+    background-color: #080c27;
     bottom: auto;
   }
 
