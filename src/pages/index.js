@@ -78,7 +78,9 @@ const Section = styled.section`
       z-index: 3;
       pointer-events: none;
       @media (min-width: 1024px) {
-        height: 400px;
+        height: 330px;
+        width: 550px;
+        
       } 
     }
   }
@@ -104,6 +106,7 @@ const Section = styled.section`
     .info-section,
     .description-section {
       position: relative;
+      z-index:10;
       &:before {
         position: absolute;
         left: 0;
