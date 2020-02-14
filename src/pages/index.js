@@ -155,6 +155,8 @@ const Section = styled.section`
     &:hover {
       transform: scale(1.01);
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      color: ${props =>
+        props.submitButtonColor ? props.submitButtonColor : "white"};
     }
     &:active {
       transform: scale(0.99);
