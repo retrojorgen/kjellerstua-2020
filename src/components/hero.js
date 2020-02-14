@@ -28,6 +28,7 @@ const moveUpAnimation = keyframes`
 }
 `
 
+
 const HeroWrapper = styled.header`
   width: 100%;
   display: flex;
@@ -100,8 +101,11 @@ const HeroWrapper = styled.header`
     background-position: top center;
     background-size: auto 100%;
     background-repeat: no-repeat;
-    opacity: 1;
+    opacity: 0.5;
     z-index: 10;
+    @media (min-width: 1024px) {
+      opacity: 1;
+    }
   }  
 `;
 

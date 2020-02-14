@@ -95,7 +95,11 @@ const Section = styled.section`
       grid-template-columns: 300px auto;
     }
     .info-section {
-      padding-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      text-align: center;
+      @media (min-width: 1024px) {
+        text-align: left;
+      }
     }
     .info-section,
     .description-section {
@@ -161,6 +165,7 @@ const Section = styled.section`
     margin: 0;
     padding: 0;
     font-size: 1.2rem;
+    
   }
   .description-section {
     padding-top: 2.6rem;
@@ -177,6 +182,9 @@ const Section = styled.section`
     font-size: 1.2rem;
     line-height: 1.8rem;
     margin-bottom: 1.6rem;
+    &:last-child {
+       margin-bottom: 0;
+    }
   }
   strong {
     font-weight: bold;
@@ -185,9 +193,11 @@ const Section = styled.section`
     margin: 0;
     padding-top: 2rem;
     font-family: "fredoka one";
-    font-size: 2.5rem;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
     @media (min-width: 1024px) {
       margin: 2rem 0;
+      font-size: 2.5rem;
       padding: 0;
     }
   }

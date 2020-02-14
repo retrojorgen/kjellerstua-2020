@@ -11,6 +11,22 @@ const FooterWrapper = styled.footer`
   position: relative;
   z-index: 10;
   padding: 1rem;
+
+  #logo {
+      margin: 0;
+      width: 159px;
+      background-repeat: no-repeat;
+      height: 54px;
+      background-image: url(${kjellerstuaLogo});
+      background-size: 100% auto;
+      display: block;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      @media (min-width: 1024px) {
+        margin: 0;
+      }
+  }
+
   @media (min-width: 1024px) {
     padding: 4rem 4rem;
   }
@@ -19,19 +35,11 @@ const FooterWrapper = styled.footer`
     width: 960px;
     max-width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
-  }
-  #logo {
-    
     @media (min-width: 1024px) {
-      margin: 0;
-      width: 159px;
-      background-repeat: no-repeat;
-      height: 54px;
-      background-image: url(${kjellerstuaLogo});
-      background-size: 100% auto;
-      display: block;
+      flex-direction: row;
     }
   }
 `;
@@ -73,16 +81,14 @@ const PageNavigation = styled.nav`
 const Header = ({ siteTitle }) => (
   <FooterWrapper
   >
-      <div className="header-shrinker">
-      <span id="logo">
-        </span>
-        <PageNavigation>
-          <li><a href="#">Praktisk informasjon</a></li>
-          <li><a href="#">Foreslå foredrag</a></li>
-          <li><a href="#">Bli sponsor</a></li>
-          
-        </PageNavigation>
-      </div>
+    <div className="header-shrinker">
+      <span id="logo"></span>
+      <PageNavigation>
+        <li><a href="#">Praktisk informasjon</a></li>
+        <li><a href="#">Foreslå foredrag</a></li>
+        <li><a href="#">Bli sponsor</a></li>
+      </PageNavigation>
+    </div>
   </FooterWrapper>
 )
 
