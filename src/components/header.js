@@ -3,17 +3,19 @@ import PropTypes from "prop-types"
 import React from "react"
 import styled from "styled-components"
 import kjellerstuaLogo from "../images/kjellerstua-top-graphics.png"
+import SvgIcon from "./svgIcons"
 
+const hoverColor = "#ae8fe6"
 
 const HeaderWrapper = styled.header`
   width: 100%;
-  
+
   font-family: "fredoka one";
   position: fixed;
   z-index: 40;
   bottom: 0;
   left: 0;
-  height: 70px;
+
   display: flex;
   align-items: center;
   background-color: #2f2174;
@@ -21,6 +23,7 @@ const HeaderWrapper = styled.header`
     top: 0;
     background-color: #080c27;
     bottom: auto;
+    height: 70px;
   }
 
   .header-shrinker {
@@ -32,7 +35,6 @@ const HeaderWrapper = styled.header`
     align-items: center;
   }
   #logo {
-    
     @media (min-width: 1024px) {
       margin: 0;
       width: 159px;
@@ -43,7 +45,7 @@ const HeaderWrapper = styled.header`
       display: block;
     }
   }
-`;
+`
 
 const PageNavigation = styled.nav`
   display: flex;
@@ -61,7 +63,7 @@ const PageNavigation = styled.nav`
     display: block;
   }
   a {
-    display: block;
+    display: flex;
     padding: 1em;
     font-size: 0.7em;
     text-transform: uppercase;
@@ -71,29 +73,69 @@ const PageNavigation = styled.nav`
     position: relative;
     overflow: hidden;
     text-align: center;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 20px;
+    flex-direction: column;
     @media (min-width: 1024px) {
       text-align: left;
       font-size: 0.8em;
+      flex-direction: row;
+    }
+    .menu-icon {
+      width: 20px;
+      height: 20px;
+      margin-bottom: 10px;
+      @media (min-width: 1024px) {
+        margin-right: 10px;
+      }
     }
     &:hover {
-      color: #ae8fe6;
+      @media (min-width: 1024px) {
+        color: ${hoverColor};
+        background-color: #1f0b42;
+        circle,
+        path {
+          stroke: ${hoverColor};
+        }
+      }
     }
   }
-`;
+`
 
 const Header = ({ siteTitle }) => (
-  <HeaderWrapper
-  >
-      <div className="header-shrinker">
-        <span id="logo">
-        </span>
-        <PageNavigation>
-          <li><a href="#practical-info">Praktisk informasjon</a></li>
-          <li><a href="#suggest-presentation">Foreslå foredrag</a></li>
-          <li><a href="#become-sponsor">Bli sponsor</a></li>
-          
-        </PageNavigation>
-      </div>
+  <HeaderWrapper>
+    <div className="header-shrinker">
+      <span id="logo"></span>
+      <PageNavigation>
+        <li>
+          <a href="#practical-info">
+            <SvgIcon className="menu-icon" name="tv" hoverColor={hoverColor} />{" "}
+            Praktisk informasjon
+          </a>
+        </li>
+        <li>
+          <a href="#suggest-presentation">
+            <SvgIcon
+              className="menu-icon"
+              name="lamp"
+              hoverColor={hoverColor}
+            />{" "}
+            Foreslå foredrag
+          </a>
+        </li>
+        <li>
+          <a href="#become-sponsor">
+            <SvgIcon
+              className="menu-icon"
+              name="couch"
+              hoverColor={hoverColor}
+            />{" "}
+            Bli sponsor
+          </a>
+        </li>
+      </PageNavigation>
+    </div>
   </HeaderWrapper>
 )
 
