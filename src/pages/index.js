@@ -15,9 +15,17 @@ const Section = styled.section`
   align-items: flex-start;
   width: 100%;
   padding: 2rem;
-  background: ${props => props.background ? props.background: ""};
+  background: ${props => (props.background ? props.background : "")};
   position: relative;
   overflow-x: hidden;
+  a {
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+    &:hover {
+      color: #ae8fe6;
+    }
+  }
   @media (min-width: 1024px) {
     padding: 6rem 4rem;
   }
@@ -51,10 +59,10 @@ const Section = styled.section`
       background-position: bottom left;
       background-repeat: no-repeat;
       background-image: url(${kjellerstuaBasementGraphics});
-      
+
       opacity: 0.2;
       z-index: 3;
-      pointer-events: none; 
+      pointer-events: none;
       @media (min-width: 1024px) {
         height: 400px;
       }
@@ -73,22 +81,20 @@ const Section = styled.section`
       background-position: bottom right;
       background-repeat: no-repeat;
       background-image: url(${kjellerstuaBasementGraphics});
-      
+
       opacity: 0.4;
       z-index: 3;
       pointer-events: none;
       @media (min-width: 1024px) {
         height: 330px;
         width: 550px;
-        
-      } 
+      }
     }
   }
   .content-wrap {
-
     max-width: 100%;
     width: 960px;
-    
+
     color: #e6e2ff;
     position: relative;
     @media (min-width: 1024px) {
@@ -106,7 +112,7 @@ const Section = styled.section`
     .info-section,
     .description-section {
       position: relative;
-      z-index:10;
+      z-index: 10;
       &:before {
         position: absolute;
         left: 0;
@@ -115,15 +121,22 @@ const Section = styled.section`
         width: 100%;
         display: block;
         height: 4px;
-        background: ${props => props.lineBackground ? props.lineBackground: "linear-gradient(45deg,#6838b3,#322ca1)"};
+        background: ${props =>
+          props.lineBackground
+            ? props.lineBackground
+            : "linear-gradient(45deg,#6838b3,#322ca1)"};
         border-radius: 4px;
       }
     }
   }
   .submit-button {
     border-radius: 40px;
-    background: ${props => props.submitButtonBackground ? props.submitButtonBackground: "linear-gradient(45deg,#6838b3,#322ca1)"};
-    color: ${props => props.submitButtonColor ? props.submitButtonColor: "white"};
+    background: ${props =>
+      props.submitButtonBackground
+        ? props.submitButtonBackground
+        : "linear-gradient(45deg,#6838b3,#322ca1)"};
+    color: ${props =>
+      props.submitButtonColor ? props.submitButtonColor : "white"};
     text-transform: uppercase;
     padding: 1.2rem 4rem;
     border: 0;
@@ -136,13 +149,18 @@ const Section = styled.section`
     cursor: pointer;
     position: relative;
     z-index: 10;
+    text-decoration: none;
+    display: block;
+    text-align: center;
     &:hover {
       transform: scale(1.01);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      color: ${props =>
+        props.submitButtonColor ? props.submitButtonColor : "white"};
     }
     &:active {
       transform: scale(0.99);
-      box-shadow: 0 0 0 rgba(0,0,0,0.2);
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
     }
   }
   ul {
@@ -168,7 +186,6 @@ const Section = styled.section`
     margin: 0;
     padding: 0;
     font-size: 1.2rem;
-    
   }
   .description-section {
     padding-top: 2.6rem;
@@ -186,7 +203,7 @@ const Section = styled.section`
     line-height: 1.8rem;
     margin-bottom: 1.6rem;
     &:last-child {
-       margin-bottom: 0;
+      margin-bottom: 0;
     }
   }
   strong {
@@ -204,7 +221,7 @@ const Section = styled.section`
       padding: 0;
     }
   }
-`;
+`
 
 const IndexPage = () => (
   <Layout>
@@ -213,9 +230,11 @@ const IndexPage = () => (
     <Section id="practical-info" className="graphics-right">
       <div className="content-wrap">
         <div className="info-section">
-          <h3>Praktisk info
-          </h3>
-          <p className="standfirst">20. juni, 2020, <br />Røverstaden, Oslo</p>
+          <h3>Praktisk info</h3>
+          <p className="standfirst">
+            20. juni, 2020, <br />
+            Røverstaden, Oslo
+          </p>
           {/**
           <ul>
             <li>
@@ -232,39 +251,90 @@ const IndexPage = () => (
            */}
         </div>
         <div className="description-section">
-          
-        <p><strong>Som hobbyutvikler er det én ting jeg aldri helt har fått dreisen på: Git.</strong></p>
+          <p>
+            <strong>
+              Er du klar for årets artigste inspirasjonsdag med kode24-gjengen?
+            </strong>
+          </p>
 
-<p><strong>For selv med moderne verktøy og Git-funksjoner i editoren, må de aller fleste av oss inn i det terminalbaserte Git-universet før eller siden, som kan være utfordrende for selv de mest erfarne utviklerne.</strong></p>
+          <p>
+            Jaggu starter ikke kode24 sin egen messe. En hel dag med kodekos og
+            fantastiske gjester. Gjennom en hel dag skal vi lære sammen om ting
+            som skal gjøre deg til en bedre koder i 2020 og fremover.
+          </p>
 
-<p>- Nettsida Ohshitgit.com har ei liste med typiske Git fuckups, og hvordan man løser dem. Det er en side jeg har vært inne på litt for mange ganger, innrømmer frilansutvikler Leif Riksheim til kode24.</p>
+          <p>
+            Konferansen holdes på trivelige Røverstaden, i Vika i Oslo. Som det
+            fremkommer av navnet foregår selve konferansen i kjelleren. Vi
+            serverer kaffe, drikke og alt du skulle trenge for å kose deg på
+            konferansen, og det blir servert både lunsj og middag i løpet av
+            konferansen.
+          </p>
 
-<p>- Så det slo meg at det ville vært nyttig å ha det rett i terminalen, og at jeg kunne lage et interface over Git-kommandoer gjennom å svare på enkle spørsmål.</p>
+          <p>
+            Vi jobber fortsatt med programmet, så om du kjenner noen som er en
+            driftig foredragsholder, be vedkommende{" "}
+            <a href="#submit-presentation">sende en søknad</a>, da vel? 🥳
+          </p>
 
-<p>Resultatet ble hobbyprosjektet hans OhShitGit.</p>
-          
+          <p>
+            Vi gleder oss til å treffe alle dere på konferansen. Kjellerstua
+            erstatter en vanlig arbeidsdag med en dag proppfull av
+            vitamininnsprøytinger.
+          </p>
+          <p>
+            Vi sees der! PS, early bird-billetter kommer i salg om kort tid.
+            Følg med på{" "}
+            <a href="https://www.kode24.no" target="new_window">
+              kode24.no
+            </a>{" "}
+            og vår{" "}
+            <a href="https://www.facebook.com/kode24" target="new_window">
+              facebook-side
+            </a>
+            .
+          </p>
         </div>
       </div>
     </Section>
 
-    <Section  id="suggest-presentation" className="graphics-left" background="linear-gradient(45deg, #6838b3, #322ca1)" lineBackground="white" submitButtonBackground="linear-gradient(45deg, white, #d9defd)" submitButtonColor="#3F51B5">
+    <Section
+      id="suggest-presentation"
+      className="graphics-left"
+      background="linear-gradient(45deg, #6838b3, #322ca1)"
+      lineBackground="white"
+      submitButtonBackground="linear-gradient(45deg, white, #d9defd)"
+      submitButtonColor="#3F51B5"
+    >
       <div className="content-wrap">
         <div className="info-section">
-          <h3>Foreslå foredrag
-          </h3>
+          <h3>Foreslå foredrag</h3>
         </div>
         <div className="description-section">
-          
-        <p><strong>Som hobbyutvikler er det én ting jeg aldri helt har fått dreisen på: Git.</strong></p>
+          <p>
+            <strong>
+              Vil du holde et foredrag på Kjellerstua 2020? Så kult a gitt!
+            </strong>
+          </p>
 
-<p><strong>For selv med moderne verktøy og Git-funksjoner i editoren, må de aller fleste av oss inn i det terminalbaserte Git-universet før eller siden, som kan være utfordrende for selv de mest erfarne utviklerne.</strong></p>
+          <p>
+            Selv om vi gjerne skulle hatt plass til alle foredragene i verden,
+            har vi bare tid til én dag med foredrag. Derfor ber vi alle som vil
+            holde foredrag fylle ut skjemaet under, så hører du fra oss når vi
+            skal sette sammen årets program!
+          </p>
 
-<p>- Nettsida Ohshitgit.com har ei liste med typiske Git fuckups, og hvordan man løser dem. Det er en side jeg har vært inne på litt for mange ganger, innrømmer frilansutvikler Leif Riksheim til kode24.</p>
-
-<p>- Så det slo meg at det ville vært nyttig å ha det rett i terminalen, og at jeg kunne lage et interface over Git-kommandoer gjennom å svare på enkle spørsmål.</p>
-
-<p>Resultatet ble hobbyprosjektet hans OhShitGit.</p>
-          <button className="submit-button">Åpne skjema</button>
+          <p>
+            Obs, vi ser etter mest mulig praktiske foredrag, hvor lytteren kan
+            lære noe håndfast hun kan bruke i yrket sitt.{" "}
+          </p>
+          <a
+            href="https://forms.gle/WuRgzf4VywBcVqcS6"
+            target="new_window"
+            className="submit-button"
+          >
+            Åpne skjema
+          </a>
         </div>
       </div>
     </Section>
@@ -272,26 +342,40 @@ const IndexPage = () => (
     <Section id="become-sponsor" className="graphics-right">
       <div className="content-wrap">
         <div className="info-section">
-          <h3>Bli sponsor
-          </h3>
+          <h3>Bli sponsor</h3>
         </div>
         <div className="description-section">
-          
-        <p><strong>Som hobbyutvikler er det én ting jeg aldri helt har fått dreisen på: Git.</strong></p>
-
-<p><strong>For selv med moderne verktøy og Git-funksjoner i editoren, må de aller fleste av oss inn i det terminalbaserte Git-universet før eller siden, som kan være utfordrende for selv de mest erfarne utviklerne.</strong></p>
-
-<p>- Nettsida Ohshitgit.com har ei liste med typiske Git fuckups, og hvordan man løser dem. Det er en side jeg har vært inne på litt for mange ganger, innrømmer frilansutvikler Leif Riksheim til kode24.</p>
-
-<p>- Så det slo meg at det ville vært nyttig å ha det rett i terminalen, og at jeg kunne lage et interface over Git-kommandoer gjennom å svare på enkle spørsmål.</p>
-
-<p>Resultatet ble hobbyprosjektet hans OhShitGit.</p>
-          <button className="submit-button">Ta kontakt</button>
+          <p>
+            <strong>
+              Gi firmaet ditt synlighet på årets kuleste inspirasjonskonferanse
+              for kodere!
+            </strong>
+          </p>
+          <p>
+            Vi ser etter et lite utvalg sponsorer som ønsker å bli en del av
+            Kjellerstua. Vi er fleksible på å finne gode og spennende løsninger,
+            for at dere skal skinne mest mulig, og få masse trivelig
+            oppmerksomhet fra våre besøkende.
+          </p>
+          <p>
+            På jakt etter nye kodehoder? Da er det Kjellerstua dere skal stille
+            ut i!
+          </p>
+          <p>
+            Ta kontakt med vår sponsor-ansvarlig <strong>navn navnesen</strong>{" "}
+            for en trivelig prat:
+          </p>
+          <p>
+            <a href="tel:23522652" className="submit-button">
+              Ring: 23522652
+            </a>
+          </p>
+          <a href="mailto:navn.navnesen@navn.no" className="submit-button">
+            Mail: navn.navnesen@navn.no
+          </a>
         </div>
       </div>
     </Section>
-
-
   </Layout>
 )
 
