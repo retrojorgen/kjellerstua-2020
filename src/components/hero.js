@@ -1,9 +1,8 @@
 import React from "react"
-import styled, {keyframes} from "styled-components"
+import styled, { keyframes } from "styled-components"
 import embroideryBack from "../images/embroidery.jpg"
 import kjellerstuaLogo from "../images/kjellerstua-logo.png"
 import kjellerstuaBasementGraphics from "../images/basement-graphics.png"
-
 
 const moveUpAnimation = keyframes`
 0% {
@@ -28,7 +27,6 @@ const moveUpAnimation = keyframes`
 }
 `
 
-
 const HeroWrapper = styled.header`
   width: 100%;
   display: flex;
@@ -38,7 +36,7 @@ const HeroWrapper = styled.header`
   background-color: black;
   font-family: "Fredoka One";
   padding-top: 80px;
-  background: radial-gradient(#6838b3,#322ca1);
+  background: radial-gradient(#6838b3, #322ca1);
   position: relative;
   overflow: hidden;
   height: 260px;
@@ -51,36 +49,25 @@ const HeroWrapper = styled.header`
     bottom: 0;
     width: 100%;
     height: 200px;
-    background: linear-gradient(0deg,#0000005e, transparent);
+    background: linear-gradient(0deg, #0000005e, transparent);
   }
-    h1 {
-        color: white;
-        text-transform: uppercase;
-        font-size: 8em;
-        font-weight: regular;
-        margin-bottom: 0.4rem;
-    }
-    h2 {
-        color: white;
-    }
-    #embroidery-overlay {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url(${embroideryBack});
-      background-size: auto 90%;
-      mix-blend-mode: multiply;
-      opacity: 0.4;
-      z-index: 4;
-    }
+  #embroidery-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(${embroideryBack});
+    background-size: auto 90%;
+    mix-blend-mode: multiply;
+    opacity: 0.4;
+    z-index: 4;
+  }
   #hero-logo-graphics {
-    
     top: -40px;
     left: 0px;
     width: 300px;
-    margin-bottom:80px;
+    margin-bottom: 80px;
     position: relative;
     z-index: 5;
     animation: ${moveUpAnimation} 1s ease-in-out forwards 0.5s;
@@ -105,15 +92,37 @@ const HeroWrapper = styled.header`
     @media (min-width: 1024px) {
       opacity: 1;
     }
-  }  
-`;
+  }
+`
+
+const Tagline = styled.h1`
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  font-size: 1em;
+  bottom: 18px;
+  max-width: 80%;
+  color: white;
+  @media (min-width: 1024px) {
+    font-size: 3em;
+    bottom: 45px;
+  }
+  span {
+    background-color: orange;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 28px;
+  }
+`
 
 const Header = ({ siteTitle }) => (
-  <HeroWrapper
-  > 
+  <HeroWrapper>
     <img id="hero-logo-graphics" src={kjellerstuaLogo} />
     <div id="embroidery-overlay"></div>
     <div id="hero-basement-graphics"></div>
+    <Tagline>
+      Inspirasjonsdag for <span>kodeskills i 2020</span>
+    </Tagline>
   </HeroWrapper>
 )
 

@@ -5,7 +5,7 @@ import styled from "styled-components"
 import kjellerstuaLogo from "../images/kjellerstua-top-graphics.png"
 import SvgIcon from "./svgIcons"
 
-const hoverColor = "#ae8fe6"
+const hoverColor = "#c6b0ef"
 
 const HeaderWrapper = styled.header`
   width: 100%;
@@ -64,7 +64,7 @@ const PageNavigation = styled.nav`
   }
   a {
     display: flex;
-    padding: 1em;
+    padding: 1em 1em 3em 1em;
     font-size: 0.7em;
     text-transform: uppercase;
     color: white;
@@ -78,6 +78,7 @@ const PageNavigation = styled.nav`
     border-radius: 20px;
     flex-direction: column;
     @media (min-width: 1024px) {
+      padding: 1em;
       text-align: left;
       font-size: 0.8em;
       flex-direction: row;
@@ -88,6 +89,7 @@ const PageNavigation = styled.nav`
       margin-bottom: 10px;
       @media (min-width: 1024px) {
         margin-right: 10px;
+        margin-bottom: 0;
       }
     }
     &:hover {

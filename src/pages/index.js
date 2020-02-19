@@ -131,6 +131,7 @@ const Section = styled.section`
   }
   .submit-button {
     border-radius: 40px;
+    word-break: break-word;
     background: ${props =>
       props.submitButtonBackground
         ? props.submitButtonBackground
