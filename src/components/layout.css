@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Roboto:400,400i,700,700i&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Fredoka+One|Roboto:400,400i,700,700i&display=swap");
 
 body,
 html {
-  margin:0;
+  margin: 0;
   padding: 0;
   background-color: #080c27;
   font-family: roboto;
 }
 
 body {
-  padding-bottom: 70px;
+  padding-bottom: 100px;
 }
 
 * {
